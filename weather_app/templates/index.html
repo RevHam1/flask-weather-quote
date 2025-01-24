@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Weather Conditions</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/style.css') }} "
+    />
+  </head>
+  <body>
+    <h1>Get Weather Conditions</h1>
+    <form action="/weather" method="POST">
+      <input type="text" name="city" placeholder="Enter city" required />
+      <button type="submit">Submit</button>
+    </form>
+    <p>App by Tyrone Oldham</p>
+
+    <hr />
+
+    <h2>Quote for Today</h2>
+    {% if quote %}
+    <p style="text-align: center">"{{ quote.content }}"</p>
+    <p>- {{ quote.author }}</p>
+    {% else %}
+    <p>Could not fetch a quote at this time. Please try again later.</p>
+    {% endif %}
+    <!-- <a style="color: white" href="/">Get Another Quote</a> -->
+  </body>
+</html>
